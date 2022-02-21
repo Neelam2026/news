@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css">
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+        <!--Show the clicked article in detailed format here ONLY-->
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+  import sidebar from "./components/sidebar.js"
+  let sidebar_div=document.getElementById("sidebar")
+  sidebar_div.innerHTML= sidebar()
+
+
+  // 
+
+ //import{ apiCall, appendArticles } from "./scripts/main.js"
+    var data=JSON.parse(localStorage.getItem("news"))
+   var x=data[0]
+   console.log(data[0])
+
+   let div5=document.createElement("div")
+   div5.id="div5"
+
+   let div6=document.createElement("div")
+   let img2=document.createElement("img")
+   img2.src=x.urlToImage;
+   img2.id="img2"
+   div6.append(img2)
+
+   let div11=document.createElement("div")
+   let div7=document.createElement("div")
+   div7.textContent=x.title
+   div7.id="div7"
+   let div8=document.createElement("div")
+   div8.textContent=x.publishedAt
+   div8.id="div8"
+
+   let div9=document.createElement("div")
+   div9.textContent=x.description
+   div9.id="div9"
+   let div10=document.createElement("div")
+   div10.textContent=x.source.name
+   div10.id="div10"
+  
+   div11.append(div8,div9,div10);
+   div5.append(div7,div6,div11)
+
+   document.getElementById("main").append(div5)
+
+
+
+
+</script>
