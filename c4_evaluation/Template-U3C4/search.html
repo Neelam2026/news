@@ -26,11 +26,13 @@
   sidebar_div.innerHTML = sidebar();
 
   import { apiCall, appendArticles } from "./scripts/main.js";
-  let article = localStorage.getItem("article");
+  let article = localStorage.getItem("search_term");
   let url = `https://shrouded-earth-23381.herokuapp.com/api/search/?q=${article}`;
   let data = await apiCall(url);
   console.log(data);
 
   let parent = document.getElementById("main");
   appendArticles(data, parent);
+
+ 
 </script>

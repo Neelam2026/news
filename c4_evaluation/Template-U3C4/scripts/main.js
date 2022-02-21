@@ -41,8 +41,9 @@ function appendArticles(articles, main) {
 var array=[];
 var showdata=(data)=>{
     array.push(data)
-    localStorage.setItem("news",JSON.stringify(array));
+    localStorage.setItem("article",JSON.stringify(array));
     window.location.href="news.html"
 }
 
 export { apiCall, appendArticles }
+
